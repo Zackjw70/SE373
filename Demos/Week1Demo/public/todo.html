@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>To Do List</h1>
+        <div id="userData">
+
+        </div>
+    </div>
+
+
+    <a href="/index">Return to Home</a>
+
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/players.json',
+                dataType: 'json',
+                success: function (data) {
+                    displayUserData(data);
+                },
+                error: function () {
+                    $('#userData').text('Error: Unable to fetch user data');
+                }
+            });
+        });
+
+        function displayUserData(data) {
+            if (data && Array.isArray(data)) {
+                let table = `
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Game
+                                </th>
+                                <th>
+                                    Times Played
+                                </th>
+                                <th>
+                                    Times Won
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                data.forEach(player => {
+                    table += `
+                        <tr>
+                            <td>
+                                ${player.Name}
+                            </td>
+                            <td>
+                                ${player.Game}
+                            </td>
+                            <td>
+                                ${player['Times Played']}
+                            </td>
+                            <td>
+                                ${player['Times Won']}
+                            </td>
+                        </tr>
+                    `;
+                });
+                table += `
+                        </tbody>
+                    </table>
+                `;
+                $('#userData').html(table);
+            } else {
+                $('#userData').text('No data available');
+            }
+        }
+    </script>
+</body>
+
+</html>

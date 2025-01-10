@@ -1,3 +1,21 @@
-body{
+table {
+    width: 100%;
+    border-collapse:collapse;
+}
+th,td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
 
+.container{
+    margin: 3rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+    background-color: gainsboro;
+    padding: 1rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
 }

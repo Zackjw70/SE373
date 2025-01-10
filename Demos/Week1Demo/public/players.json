@@ -1,6 +1,14 @@
-{
-    "Name":"Jordan",
-    "Game":"Baltaro",
-    "Times Played": 50,
-    "Times Won": 0
-}
+[
+    {
+        "Name":"Jordan",
+        "Game":"Baltaro",
+        "Times Played": 50,
+        "Times Won": 0
+    },
+    {
+        "Name":"Zack",
+        "Game":"Forklift",
+        "Times Played": 20,
+        "Times Won": 1
+    }
+]
